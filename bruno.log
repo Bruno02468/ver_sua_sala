@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<title>COLÉGIO AGOSTINIANO MENDEL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store" /> 
+<meta http-equiv="Pragma" content="no-cache, no-store" /> 
+<meta http-equiv="expires" content="Mon, 06 Jan 1990 00:00:01 GMT" /> 
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+
+<!-- CSS -->
+<link href="/site2.css?22.11.2016" rel="stylesheet" type="text/css"/>
+<link href="/menu.css?01.09.2014" rel="stylesheet" type="text/css"/>
+<link href="/menu2.css?01.10.2014" rel="stylesheet" type="text/css"/>
+<link href="/aluno_notas.css?18-03-2012" rel="stylesheet" type="text/css"/>
+<link href="/css/sala_virtual.css?21.06.2013" rel="stylesheet" type="text/css"/>
+<link href="/css/diario.css?03.03.2013" rel="stylesheet" type="text/css"/>
+<link href="/css/cons_aluno.css?09.08.2012" rel="stylesheet" type="text/css" />
+<link href="/estilo.css?30012011" rel="stylesheet" type="text/css"/>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/js/prototype.js?24.03.2016"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="/js/ajax2.js?29.03.2014" charset="ISO-8859-1"></script>
+<script type="text/javascript" src="/js/effects.js"></script>
+<script type="text/javascript" src="/js/inc_destaques.js?01-09-2014"></script>
+
+<!-- GOOGLE ANALITYCS -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72661544-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var $j = jQuery.noConflict();
+</script>
+
+<script>
+var webservice_url = 'https://atividades.educacionalweb.com.br/EducacionalWebAPI';
+//var webservice_url = 'http://localhost:31477';
+
+
+
+
+function atualizarNotificacoesUsuario(token, escola)
+{
+	
+	var successAtualizarNotificacoesUsuario = function(data){
+		var msg_novas = 0;
+		mensagens = data.lista;
+
+		for(i=0; i<mensagens.length; i++)
+		{ 
+			msg_novas += mensagens[i].qtde;
+		};
+
+		$j("#notif-prof").removeClass("notif-on");  
+		$j("#notif-prof").removeClass("notif-off");
+		
+		$j("#notif").html(msg_novas);  
+		if (msg_novas == 0) { classNotif = 'notif-off' } else { classNotif = 'notif-on' }
+		$j("#notif-prof").addClass(classNotif);  
+	}
+
+	$j.ajax({
+		type: "GET",
+		url: webservice_url + "/Mensagens/listarTurmas/json",
+		dataType: 'json',
+		data: { token: token, escola:escola, turma:"", codDis:"", subDis: "" },
+		success: successAtualizarNotificacoesUsuario
+	});
+	
+}
+</script>
+
+
+
+
+<!-- HIGHSLIDE -->
+<script type="text/javascript" src="/highslide/highslide-full.js"></script>
+<script type="text/javascript" src="/highslide/highslide-with-html.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/highslide/highslide.css?25.04.2016" /> 
+<script type="text/javascript"> 
+hs.showCredits = false;
+hs.graphicsDir = '/highslide/graphics/';
+hs.outlineType = 'rounded-white';
+hs.wrapperClassName = 'draggable-header';
+hs.allowMultipleInstances = false;
+hs.preserveContent = false;
+hs.align = 'center';
+hs.dimmingOpacity = 0.75;
+hs.transitions = ["expand", "crossfade"];
+hs.onDimmerClick = function() {
+  return false;
+}
+</script>
+<style type="text/css">
+.highslide-dimming {
+	background: black;
+}
+</style>
+
+
+<style type="text/css">
+<!--
+.listaComp li.cmp { 
+	width:250px;
+	float:left;
+	margin-right:10px;
+	padding: 5px 0;
+}
+.listaComp li.cmp:hover {
+	background-color:#CCC; 
+}
+.listaComp li.cmp-l1 {
+	border-top:1px solid #CCC;
+}
+div.cmp { 
+	font-size:11px; 
+	color:#333; 
+	font-weight:bold; 
+	margin-right:10px;
+}
+
+.highslide-container {
+	position:fixed;
+}
+
+-->
+</style>
+
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/lightbox.js"></script>
+
+<script type="text/javascript" src="/highslide/highslide-full.js"></script>
+<script type="text/javascript" src="/highslide/highslide-with-html.js"></script> 
+<script type="text/javascript" src="/highslide/highslide-fixed.js"></script>
+<link rel="stylesheet" type="text/css" href="/highslide/highslide.css" /> 
+
+<script type="text/javascript"> 
+hs.showCredits = false;
+hs.graphicsDir = '/highslide/graphics/';
+hs.outlineType = 'rounded-white';
+hs.wrapperClassName = 'draggable-header';
+hs.allowMultipleInstances = false;
+hs.preserveContent = true;
+hs.align = 'center';
+hs.dimmingOpacity = 0.75;
+</script>
+</head>
+
+<body>
+<div style="display:none;">
+<iframe name="processa" width="100%" height="100" src="" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+</div>
+
+<div id="pagina">
+	<div id="topo">
+
+
+<script language="JavaScript">
+
+function MakeArray(n)
+        {
+        this.length = n
+        return this
+        }
+Mes = new MakeArray(12)
+Dia = new MakeArray(7)
+Mes[1] = "janeiro"
+Mes[2] = "fevereiro"
+Mes[3] = "mar&ccedil;o"
+Mes[4] = "abril"
+Mes[5] = "maio"
+Mes[6] = "junho"
+Mes[7] = "julho"
+Mes[8] = "agosto"
+Mes[9] = "setembro"
+Mes[10] = "outubro"
+Mes[11] = "novembro"
+Mes[12] = "dezembro"
+Dia[1] = "DOMINGO"
+Dia[2] = "segunda-feira"
+Dia[3] = "ter&ccedil;a-feira"
+Dia[4] = "quarta-feira"
+Dia[5] = "quinta-feira"
+Dia[6] = "sexta-feira"
+Dia[7] = "S&aacute;bado"
+function Hoje(Data) 
+        {
+        var theDate = Data.getDate()
+        var theDay = Dia[Data.getDay() + 1]
+        var theMonth = Mes[Data.getMonth() + 1]
+        var theYear
+        if (Data.getYear() < 90)
+                {
+                theYear = Data.getYear() + 1000
+                }
+        else
+                {
+                theYear = Data.getYear() + 0
+                }
+        return theDay + ", " + theDate + " de " + theMonth + " de " + theYear + "."
+        }
+// -->
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+
+
+
+var doit=function() { showAguarde('', 1500); };
+Event.observe(window, 'load', function() {
+									   
+    $$('a[rel="aguarde"]').each(function(e) {
+		if (e.readAttribute('onclick')==null) {
+			if (e.addEventListener) {
+				e.addEventListener('click',doit,false); //everything else    
+			} else if (e.attachEvent) {
+				e.attachEvent('onclick',doit);  //IE only
+		    }
+		} else {
+			e.setAttribute('onclick', function() { showAguarde('', 1500); eval(e.readAttribute('onclick'))} );
+		}
+    });
+});
+
+</script>
+		
+
+
+<div id="topo1">
+<div id="topo2">
+
+  <div style="z-index:200; color:#FFF; overflow:hidden; border-bottom:5px solid #094c80">
+    <table border="0" cellpadding="0" cellspacing="0" style="background-image:url(/images/topo.jpg); background-position:0 30px; background-repeat:no-repeat" >
+      <tr>
+        <td width="580" rowspan="3" height="109" align="left" valign="middle">
+			  
+              <div style="position:relative; left:10px;" id="topo-logo">
+              <a href="/">
+              <img id='logo-colegio' src="/images/logo_mendel.png" style="max-height:64px;" alt="logo do colégio" />
+              </a>
+              </div>
+              
+        </td>
+     </tr>
+     <tr>
+     	<td></td>
+        <td valign="middle">
+          <div style="padding:8px 8px 5px 8px; font-size:14px; color:#094c80; text-align:right; min-height:18px;">
+
+
+
+            <b>
+            	<span>
+                Ano Letivo de 2016
+            	</span>
+            </b>
+          </div>
+		</td>    
+     </tr>    
+     <tr>
+     	<td></td>
+        <td width="510" height="80" align="left" valign="top" style="padding-right:5px;">
+        <div id="detalhe">
+            <table border="0" width="100%" cellpadding="1" cellspacing="0">
+                <tr>
+                  <td align="right" style="padding-top:20px;">
+                    <b>Bruno Borges Paschoalinoto</b>
+                    
+                    <BR />
+                    Ensino Médio&nbsp;|&nbsp;
+                    2ª série F - Médio&nbsp;|&nbsp;Nº 8<br>
+                    
+                    Matrícula: 129216
+                    </td>
+                  </tr>
+                </table>
+            </div>
+  		</td>
+     </tr>
+     </table>
+     
+
+    <table width="100%" border="0" cellpadding="5" cellspacing="0">
+      <tr>
+        <td width="10"></td>
+        
+        <td width="70" valign="middle"><a href="/login_do.asp?acao=logout&codescola=MENDEL"><img src="/images/icon16_logout.png" width="16" height="16" align="bottom" border="0" alt="Sair" />&nbsp;&nbsp;Sair</a></td>
+
+		<td>&nbsp;</td>
+
+
+
+
+      </tr>
+    </table>
+
+
+  </div>
+
+
+  <div class="clr"></div>
+  
+</div>
+</div>
+
+
+
+  </div>
+
+
+
+  <div id="conteudo">
+
+<script>
+function chkDestaques() {
+	if ($('chkDestaq').checked) {
+		location.replace('default.asp?dest=1');
+	} else {
+		location.replace('default.asp?dest=0');
+	}
+}
+</script>
+
+	            <div id="mens-carregando" class="div_mensagem" style="text-align:center;"><img src="/ajax-loader.gif" /><BR />Carregando....</div>
+
+<div class="moldura">
+    
+    <div class="moldura_topo">
+        <div class="moldura_topo_esquerda"></div>
+        <div class="moldura_titulo">ALUNO</div>
+        <div class="moldura_topo_direita"></div>
+    </div>
+    <div class="moldura_conteudo">
+        <div class="cons-aluno-dados">
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr>
+                    
+                    <td width="70" valign="top">
+                        
+                            <a href="http://api.educacionalweb.com.br/educacionalwebapi/AlunoFoto/EW/Q8HqU4ejBtTtTmyVRuzrT7bkQO6kPupbPaHbP3yZPuqkNf9jPuygQOybBuFVUazlRMHmPmwoA45mEL9nBLNkQf2f.jpg" rel="lightbox">
+                            <img src="http://api.educacionalweb.com.br/educacionalwebapi/AlunoFoto/EW/Q8HqU4ejBtTtTmyVRuzrT7bkQO6kPupbPaHbP3yZPuqkNf9jPuygQOybBuFVUazlRMHmPmwoA45mEL9nBLNkQf2f.jpg" style="border:1px solid #6E6E6E; width:100px; height:auto;"> 
+							</a>
+					    
+                    </td>
+                
+                    <td valign="top" style="padding:5px">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="100%">
+                                	<font style="color:#000000; font-size:14px; font-weight:bold;">Bruno Borges Paschoalinoto</font><br>
+                                
+                                    <font style="color:#000000; font-size:11px;">2ª série F - Médio</font><br />
+								
+                                    <font style="color:#666; font-size:11px;">129216</font></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--include file="include_pendencias.asp" -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="bottom">
+                                    <div style="margin-top:10px; float:left;">
+                                        <ul class="ul_destaques">
+                                            
+<li>
+	<a href="mostra_boletim.asp?escola=MENDEL&etapa=2016&curso=004&serie=2&mat=129216&turma=110402F&req=0&aluno=129216" title="">BOLETIM</a>
+	
+</li>
+
+<li>
+	<a href="sala_virtual.asp?escola=MENDEL&etapa=2016&curso=004&serie=2&mat=129216&turma=110402F&req=0&aluno=129216" title="">SALA DE AULA VIRTUAL</a>
+	
+</li>
+
+                                        </ul>
+                                    </div>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div  id="div_aluno129216">
+            <div>
+                
+                
+                <!-- FALTAS E PRESENÇA -->
+                <div class="moldura-int">
+                    <div class="moldura-int-topo">
+                        <div class="moldura-int-titulo">
+                        	
+                        	Faltas e presença
+                            
+                        </div>
+
+                        <span id="bt-presenca-129216" class="up" style="display:none;" onclick="return div_up_down(this,'presenca-geral129216');"></span> </div>
+                    <div class="clr"></div>
+                    <div id="presenca-geral129216">
+                        <div style="padding:0px 5px;">
+                            <div class="div_classif_turma">
+                                <ul>
+                                    
+                                    <li id="li-presenca-1"><a href="" onclick="return mostrar_presenca('129216','1','004','2','110402F','2016');">1° Período</a></li>
+                                    
+                                    <li id="li-presenca-2"><a href="" onclick="return mostrar_presenca('129216','2','004','2','110402F','2016');">2° Período</a></li>
+                                    
+                                    <li id="li-presenca-3"><a href="" onclick="return mostrar_presenca('129216','3','004','2','110402F','2016');">3° Período</a></li>
+                                    
+                                    <li id="li-presenca-4"><a href="" onclick="return mostrar_presenca('129216','4','004','2','110402F','2016');">4° Período</a></li>
+                                    
+                            
+									<li><img src="images/paganterior.gif" /><span style="position:relative; top: -3px;">&nbsp;Selecione</span></li>
+                                </ul>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div id="div-presenca-129216" class="moldura-int-conteudo">
+                            <div id="div_presenca_129216" class="notas_avaliacoes" style="display:none;"> </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- FALTAS E PRESENÇA -->
+            
+
+            <!-- ORIENTAÇÃO -->
+            <div class="moldura-int">
+                <div class="moldura-int-topo">
+                    <div class="moldura-int-titulo">Comunicados - Orientação Educacional</div>
+                </div>
+                <div class="moldura-int-conteudo">
+                    
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr><td height="5" colspan="3" class="titulo02"></td></tr>
+
+				<tr>
+					<td valign="top" bgcolor="#F7F7F7">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+							<tr>
+	
+								<td width="50%">
+                                	<div style="margin: 10px 0; border-bottom:1px solid #CCC">
+									<table width="100%" cellpadding="1" cellspacing="0" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2">
+                                                <font color="#666666">16/11/2016</font>
+                                            
+                                                <span style="color:#F00">NOVO</span>
+                                            
+												<div>
+                                            		<a href="cdn_ocorrencias_visualizar.asp?id=1594512" onClick="selecTurmas=this; return hs.htmlExpand(this, { objectType: 'iframe', width:770, slideshowGroup: 'orient1594512' } )">CONVOCAÇÃO</a>
+                                                </div>
+                                            </td>
+										</tr>
+									</table>
+                                    </div>
+								</td>
+
+								<td width="50%">
+                                	<div style="margin: 10px 0; border-bottom:1px solid #CCC">
+									<table width="100%" cellpadding="1" cellspacing="0" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2">
+                                                <font color="#666666">18/10/2016</font>
+                                            
+                                                <span style="color:#F00">NOVO</span>
+                                            
+												<div>
+                                            		<a href="cdn_ocorrencias_visualizar.asp?id=1530754" onClick="selecTurmas=this; return hs.htmlExpand(this, { objectType: 'iframe', width:770, slideshowGroup: 'orient1530754' } )">TAREFAS</a>
+                                                </div>
+                                            </td>
+										</tr>
+									</table>
+                                    </div>
+								</td>
+
+							</tr>
+
+							<tr>
+	
+								<td width="50%">
+                                	<div style="margin: 10px 0; border-bottom:1px solid #CCC">
+									<table width="100%" cellpadding="1" cellspacing="0" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2">
+                                                <font color="#666666">13/10/2016</font>
+                                            
+                                                <span style="color:#F00">NOVO</span>
+                                            
+												<div>
+                                            		<a href="cdn_ocorrencias_visualizar.asp?id=1521042" onClick="selecTurmas=this; return hs.htmlExpand(this, { objectType: 'iframe', width:770, slideshowGroup: 'orient1521042' } )">TAREFAS</a>
+                                                </div>
+                                            </td>
+										</tr>
+									</table>
+                                    </div>
+								</td>
+
+								<td width="50%">
+                                	<div style="margin: 10px 0; border-bottom:1px solid #CCC">
+									<table width="100%" cellpadding="1" cellspacing="0" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2">
+                                                <font color="#666666">20/09/2016</font>
+                                            
+                                                <span style="color:#F00">NOVO</span>
+                                            
+												<div>
+                                            		<a href="cdn_ocorrencias_visualizar.asp?id=1463664" onClick="selecTurmas=this; return hs.htmlExpand(this, { objectType: 'iframe', width:770, slideshowGroup: 'orient1463664' } )">TAREFAS</a>
+                                                </div>
+                                            </td>
+										</tr>
+									</table>
+                                    </div>
+								</td>
+
+							</tr>
+
+							<tr>
+	
+								<td width="50%">
+                                	<div style="margin: 10px 0; border-bottom:1px solid #CCC">
+									<table width="100%" cellpadding="1" cellspacing="0" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2">
+                                                <font color="#666666">12/09/2016</font>
+                                            
+                                                <span style="color:#F00">NOVO</span>
+                                            
+												<div>
+                                            		<a href="cdn_ocorrencias_visualizar.asp?id=1443340" onClick="selecTurmas=this; return hs.htmlExpand(this, { objectType: 'iframe', width:770, slideshowGroup: 'orient1443340' } )">TAREFAS</a>
+                                                </div>
+                                            </td>
+										</tr>
+									</table>
+                                    </div>
+								</td>
+
+								<td width="50%">
+                                	<div style="margin: 10px 0; border-bottom:1px solid #CCC">
+									<table width="100%" cellpadding="1" cellspacing="0" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2">
+                                                <font color="#666666">05/08/2016</font>
+                                            
+												<div>
+                                            		<a href="cdn_ocorrencias_visualizar.asp?id=1354215" onClick="selecTurmas=this; return hs.htmlExpand(this, { objectType: 'iframe', width:770, slideshowGroup: 'orient1354215' } )">OBSERVAÇÕES GERAIS</a>
+                                                </div>
+                                            </td>
+										</tr>
+									</table>
+                                    </div>
+								</td>
+
+							</tr>
+
+							<tr>
+	
+								<td width="50%">
+                                	<div style="margin: 10px 0; border-bottom:1px solid #CCC">
+									<table width="100%" cellpadding="1" cellspacing="0" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2">
+                                                <font color="#666666">20/06/2016</font>
+                                            
+												<div>
+                                            		<a href="cdn_ocorrencias_visualizar.asp?id=1323606" onClick="selecTurmas=this; return hs.htmlExpand(this, { objectType: 'iframe', width:770, slideshowGroup: 'orient1323606' } )">CONVOCAÇÃO</a>
+                                                </div>
+                                            </td>
+										</tr>
+									</table>
+                                    </div>
+								</td>
+
+						</table>
+
+					</td>
+				</tr>
+			</table>
+
+                </div>
+            </div>
+            <!-- ORIENTAÇÃO FINAL -->
+            <!-- COMUNICADOS GERAIS -->
+            
+            <div class="moldura-int">
+                <div class="moldura-int-topo">
+                    <div class="moldura-int-titulo">Comunicados Gerais</div>
+                </div>
+                <div class="moldura-int-conteudo">
+                    
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr><td height="5" colspan="3" class="titulo02"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">02/12/2016</font><BR />
+											<a href="mpagina.asp?id=27714">Informações sobre a Matrícula </a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">02/12/2016</font><BR />
+											<a href="mpagina.asp?id=27733">Errata - Venda das apostilas</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">30/11/2016</font><BR />
+											<a href="mpagina.asp?id=27633">Venda das apostilas</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">29/11/2016</font><BR />
+											<a href="mpagina.asp?id=27514">Caderno de Recuperação - 2ª série</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">22/11/2016</font><BR />
+											<a href="mpagina.asp?id=27206">Calendário de Provas - 4º Período 2ª etapa</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">22/11/2016</font><BR />
+											<a href="mpagina.asp?id=27225">Confraternização no Bomboliche - Tatuapé</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">21/11/2016</font><BR />
+											<a href="mpagina.asp?id=27143">Hotel Villa Santo Agostinho - Natal e Réveillon</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">21/11/2016</font><BR />
+											<a href="mpagina.asp?id=27178">Carta de Agradecimento</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">18/11/2016</font><BR />
+											<a href="mpagina.asp?id=27043">Calendário de Provas - 4º Período 2ª etapa</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">08/11/2016</font><BR />
+											<a href="mpagina.asp?id=26699">Entrega de boletins e Renovação da matricula para 2017</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">04/11/2016</font><BR />
+											<a href="mpagina.asp?id=26558">Agradecimento - Projeto Misericórdia </a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">04/11/2016</font><BR />
+											<a href="mpagina.asp?id=26597">Campanha Natal dos Sonhos</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">03/11/2016</font><BR />
+											<a href="mpagina.asp?id=26541">Apresentação Musical </a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">01/11/2016</font><BR />
+											<a href="mpagina.asp?id=26496">Confraternização em Atibaia-SP</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">28/10/2016</font><BR />
+											<a href="mpagina.asp?id=26317">Prova de Redação </a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">27/10/2016</font><BR />
+											<a href="mpagina.asp?id=26288">Escola de Pais - 29.10</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">26/10/2016</font><BR />
+											<a href="mpagina.asp?id=26249">Hotel Villa Santo Agostinho - Feriado 15 de novembro</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">20/10/2016</font><BR />
+											<a href="mpagina.asp?id=25962">Comunicado extra - Obra e vans</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">14/10/2016</font><BR />
+											<a href="mpagina.asp?id=25700">Calendário de Provas - 4º Período 1ª etapa</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">03/10/2016</font><BR />
+											<a href="mpagina.asp?id=25141">Escola de Pais</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">03/10/2016</font><BR />
+											<a href="mpagina.asp?id=25165">Projeto - Misericórdia</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">03/10/2016</font><BR />
+											<a href="mpagina.asp?id=25197">Simulado da FUVEST</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">26/09/2016</font><BR />
+											<a href="mpagina.asp?id=24866">Aula complementar de Matemática</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">21/09/2016</font><BR />
+											<a href="mpagina.asp?id=24663">Calendário de Provas - 3º Período 2ª etapa</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">19/09/2016</font><BR />
+											<a href="mpagina.asp?id=24589">Convites</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">16/09/2016</font><BR />
+											<a href="mpagina.asp?id=24535">Comunicado</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">15/09/2016</font><BR />
+											<a href="mpagina.asp?id=24468">Peça - Iracema</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">12/09/2016</font><BR />
+											<a href="mpagina.asp?id=24275">Visita ao Parque Estadual Turístico do Alto Ribeira (PETAR)</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">04/08/2016</font><BR />
+											<a href="mpagina.asp?id=22879">Recuperação Paralela - 2ª semestre</a></td>
+										</tr>
+									</table>								</td>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">01/08/2016</font><BR />
+											<a href="mpagina.asp?id=22679">Horário das Aulas - 2º Semestre (Corrigido)</a></td>
+										</tr>
+									</table>								</td>
+
+							<tr><td height="5" colspan="2"></td></tr>
+
+							<tr>
+
+								<td width="50%">
+									<table width="100%" cellpadding="1" cellspacing="" border="0">
+										<tr>
+											<td valign="top" width="15" style="padding-top:3px;"><img src="images/marc.gif" border="0"></td>
+											<td class="textossimples01" colspan="2" valign="top"><font color="#666666">21/03/2016</font><BR />
+											<a href="mpagina.asp?id=18650">Canal de Comunicação via WhatsApp</a></td>
+										</tr>
+									</table>								</td>
+
+						</table>
+
+                </div>
+            </div>
+            
+            <!-- COMUNICADOS GERAIS - FINAL -->
+        </div>
+        
+    </div>
+    <!-- DIV_ALUNO -->
+
+	</div>
+    <div class="moldura_baixo">
+        <div class="moldura_baixo_esquerda"></div>
+        <div class="moldura_baixo_centro"></div>
+        <div class="moldura_baixo_direita"></div>
+    </div>
+</div>
+<SCRIPT>$('mens-carregando').hide();</SCRIPT>
+  </div>
+  <div id="rodape">
+
+<DIV style="padding:40px; text-align:center;">
+    <div style="width:900px; margin:0 auto">
+        <table width="100%">
+            <tr>
+                <td colspan="2"><span id="nome-colegio">COLÉGIO AGOSTINIANO MENDEL</span> - 2016</td>
+            </tr>
+            <tr>
+                <td width="50%" align="left"><img src="/images/logo-educacionalweb.png" style="margin: 0px 0;  height: 50px;" /></td>
+                <td align="right"><img src="/images/solution-horizontal-color.png" style="margin: 0px 0; height: 50px;" /></td>
+            </tr>
+        </table>
+    </div>
+</DIV>
+
+  </div>
+</div>
+
+
+</body>
+</html>
+

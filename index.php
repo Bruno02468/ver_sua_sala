@@ -32,7 +32,13 @@ if (isset($_POST["login"]) and isset($_POST["senha"])) {
 	<head>
 		<title>Descura sua sala</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="index.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			body {
+				text-align: center;
+				font-family: sans-serif;
+			}
+		</style>
 	</head>
 	<body onload="popularSelect()">
 		<h1>Descubra sua sala</h1>

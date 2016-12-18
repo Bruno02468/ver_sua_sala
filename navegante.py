@@ -1,7 +1,7 @@
 #!/bin/python
 # ele pega os dados necessários do site do mendel, coisa que o php não
 # gosta, não vai, e não quer fazer sozinho.
-# programado em 18 de dezembro de 2016 por bruno borges paschoalinoto
+# programado por bruno borges paschoalinoto em 18 de dezembro de 2016
 
 import sys
 from urllib import request
@@ -41,6 +41,7 @@ page_request = request.Request(page_url, None, headers)
 
 default_response = request.urlopen(page_request)
 html = default_response.read().decode("iso-8859-1")
+
 nome_regex = ("<td align=\"right\" style=\"padding-top:20px;\">\r\n"
     " {20}<b>([^<]+)")
 nome = re.search(nome_regex, html).group(1)

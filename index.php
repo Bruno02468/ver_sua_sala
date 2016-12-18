@@ -1,4 +1,5 @@
 <?php
+// programado por bruno borges paschoalinoto em 18 de dezembro de 2016
 
 $msg = "";
 $f = "banco.txt";
@@ -25,12 +26,12 @@ if (isset($_POST["login"]) and isset($_POST["senha"])) {
 	}
 }
 
+if (strlen($msg) > 0) $msg .= "<br>";
 
 ?>
-
 <html>
 	<head>
-		<title>Descura sua sala</title>
+		<title>Descura sua sala!</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
@@ -41,17 +42,25 @@ if (isset($_POST["login"]) and isset($_POST["senha"])) {
 		</style>
 	</head>
 	<body onload="popularSelect()">
-		<h1>Descubra sua sala</h1>
+		<h1>Descubra sua sala!</h1>
 		<br>
-		Achar sua sala e entrar na lista é fácil.<br>
+		O esquema que eu descobri ano passado para achar sua sala foi legal.<br>
+		Mas isto aqui é melhor. Nada de digitar listas na mão.<br>
 		Basta entrar com seu login e senha da Sala Virtual/Moodle.<br>
+		<br>
+		<i><b>Sua senha não será armazenada, e só será usada para achar sua sala.</b><br>
+		Todo o código desta aplicação é
+		<a target="_blank" href="//github.com/Bruno02468/ver_sua_sala/">
+		aberto ao público sob uma licença livre.</a></i><br>
+		<br>
+		Tudo aqui foi idealizado e programado por mim, Bruno Borges Paschoalinoto.<br>
 		<br>
 		<form action="index.php" method="POST">
 			<input type="text" name="login" placeholder="Login"><br>
 			<input type="password" name="senha" placeholder="Senha"><br>
 			<input type="submit" value="Bora!"><br>
 		</form>
-		<div id="msg"><?php echo $msg; ?></div><br>
+		<span id="msg"><?php echo $msg; ?></span>
 		<br>
 		Agora, para ver a lista, escolha uma sala ou ano:
 		<select id="sala" oninput="listar(this.value)">

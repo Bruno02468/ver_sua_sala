@@ -1,3 +1,5 @@
+// programado por bruno borges paschoalinoto em 18 de dezembro de 2016
+
 banco_raw = banco_raw.slice(0, -1);
 var anos = [];
 var salas = [];

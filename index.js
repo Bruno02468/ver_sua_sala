@@ -42,9 +42,7 @@ function listar(value) {
     for (var key in banco) {
         if (!banco.hasOwnProperty(key)) continue;
         if (key.indexOf(value) < 0) continue;
-        if (value.length == 1) {
-            lista.innerHTML += "<h2>" + nomesala(key) + "</h2>";
-        }
+        lista.innerHTML += "<h2>" + nomesala(key) + "</h2>";
         lista.innerHTML += banco[key].join("<br>") + "<br><br>";
     }
 }

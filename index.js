@@ -30,6 +30,7 @@ function popularSelect() {
             banco[sala] = [];
         }
         banco[sala].push(nome);
+        banco[sala].sort();
     }
     selects.sort();
     for (var index in selects) {

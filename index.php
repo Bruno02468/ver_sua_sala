@@ -7,9 +7,10 @@ $f = "banco.txt";
 if (isset($_POST["login"]) and isset($_POST["senha"])) {
 	$login = escapeshellarg($_POST["login"]);
 	$senha = escapeshellarg($_POST["senha"]);
-	$cmd = escapeshellcmd("./navegante.py $login $senha");
+	$cmd = escapeshellcmd("./navegante_pais.py $login $senha");
 	$output_lines = explode("\n", shell_exec($cmd));
-	if (count($output_lines) < 2) {
+ 	//echo("COUNT:" . count($output_lines));
+	if (count($output_lines) < 3) {
 		$msg = $output_lines[0];
 	} else {
 		$nome = $output_lines[0];
@@ -20,7 +21,7 @@ if (isset($_POST["login"]) and isset($_POST["senha"])) {
 			$msg = "Você já está na lista, e sua sala é o $nomesala";
 		} else {
 			$banco .= "$nome:${sala}§";
-			file_put_contents($f, $banco);
+			file_put_contents($f, $banco, LOCK_EX);
 			$msg = "Você é do $nomesala, e acabamos de te colocar na lista!";
 		}
 	}
@@ -31,7 +32,7 @@ if (strlen($msg) > 0) $msg .= "<br>";
 ?>
 <html>
 	<head>
-		<title>Descura sua sala!</title>
+		<title>Descubra sua sala!</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
@@ -46,7 +47,10 @@ if (strlen($msg) > 0) $msg .= "<br>";
 		<br>
 		O esquema que eu descobri ano passado para achar sua sala foi legal.<br>
 		Mas isto aqui é melhor. Nada de digitar listas na mão.<br>
-		Basta entrar com seu login e senha da Sala Virtual/Moodle.<br>
+		Basta entrar com seu login e senha <b>DE PAIS</b> da Sala Virtual.<br>
+		<br>
+		<u>Este método dos boletos não funciona para quem pagou anuidade, e
+		para bolsistas. Desculpe.</u><br>
 		<br>
 		<i><b>Sua senha não será armazenada, e só será usada para achar sua sala.</b><br>
 		Todo o código desta aplicação é

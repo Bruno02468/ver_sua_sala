@@ -1,4 +1,8 @@
 // programado por bruno borges paschoalinoto em 18 de dezembro de 2016
+// com alterações em janeiro de 2018
+
+console.log("TILTA NÃO QUE JÁ JÁ TEM MAIS")
+console.log("mas sério, sai do console, nada pra ver aqui :3")
 
 banco_raw = banco_raw.slice(0, -1);
 var anos = [];

@@ -1,0 +1,17 @@
+alo alo
+
+então, nessa pasta eu guardo os programas antigos usados nos hacks anteriores,
+de quando o mendel usava outro site, com outras vulnerabilidades.
+
+eles não são mais úteis para nada, mas estão guardados aqui para a posteridade.
+
+o resto do programa, ou seja, a página web que compila os dados num banco, por
+sua vez, continua funcionando. o que muda é o programa que ela chama para
+obter as salas. antes era o navegante.py que dependia da biblioteca mendel.py.
+
+meu plano é fazer isso funcionar no sistema da totvs, escrevendo uma biblioteca
+para lidar com o sistema deles (totvs.py) e um novo programa que a página web
+chama (novegante.py) que obtém sua sala usando alguma vulnerabilidade no sistema
+novo que o mendel está usando. vamos ver se isso vai dar certo... :)
+
+    ~ borges
